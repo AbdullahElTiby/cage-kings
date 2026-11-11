@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#0b1226" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>Cage Kings</title>
+    <script type="module" crossorigin src="./assets/index-BnSFnvxM.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CCuNpLEz.css">
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+
+    <div id="hud">
+      <div id="tags"></div>
+      <div id="scorebar">
+        <span id="clock">3:00</span>
+        <span class="team t0">YOU</span>
+        <span class="score" id="s0">0</span>
+        <span class="score" id="s1">0</span>
+        <span class="team t1">CPU</span>
+      </div>
+      <canvas id="minimap"></canvas>
+      <div id="reticle"><i></i></div>
+      <div id="popup"></div>
+      <div id="banner"></div>
+      <div id="lockHint" class="pc-only">CLICK TO PLAY · MOUSE TO AIM</div>
+      <div id="stamina"><i></i></div>
+    </div>
+
+    <div id="controls">
+      <div id="stickZone">
+        <div id="stickBase"><div id="stickKnob"></div></div>
+      </div>
+      <div id="lookZone"></div>
+      <div class="btn" id="btnSprint">SPRINT</div>
+      <div class="btn" id="btnPass">PASS</div>
+      <div class="btn" id="btnAction">SHOOT</div>
+    </div>
+
+    <div id="menu" class="overlay">
+      <h1>CAGE KINGS</h1>
+      <p id="menuSub">3v3 arena football. No fouls. No out of bounds.</p>
+      <div class="btn-main" id="btnStart">PLAY</div>
+      <div class="btn-sub" id="btnOnline">PLAY WITH FRIENDS</div>
+      <div class="btn-sub" id="btnArena">ARENA</div>
+      <p class="hint touch-only">
+        Left thumb: move &nbsp;·&nbsp; Drag right side: look &amp; aim &nbsp;·&nbsp; SHOOT: hold to charge, ball flies to the reticle<br />
+        PASS / CALL &nbsp;·&nbsp; TACKLE without the ball
+      </p>
+      <div class="keys pc-only">
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</span>
+        <span><kbd>Mouse</kbd> Look &amp; aim</span>
+        <span><kbd>LMB</kbd>/<kbd>Space</kbd> Hold to shoot · Tackle</span>
+        <span><kbd>RMB</kbd>/<kbd>E</kbd> Pass · Call</span>
+        <span><kbd>Shift</kbd> Sprint</span>
+        <span><kbd>Esc</kbd> Free mouse</span>
+      </div>
+    </div>
+
+    <div id="lobby" class="overlay hidden">
+      <h2>PLAY WITH FRIENDS</h2>
+      <div id="lobbyHome" class="lobby-col">
+        <input id="nameIn" maxlength="12" placeholder="Your name" autocomplete="off" />
+        <div class="btn-main" id="btnHost">HOST A GAME</div>
+        <p class="or">or join a friend</p>
+        <div class="lobby-row">
+          <input id="codeIn" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters" />
+          <div class="btn-sub" id="btnJoin">JOIN</div>
+        </div>
+        <p id="homeStatus" class="status"></p>
+        <div class="btn-sub" id="btnBack">BACK</div>
+      </div>
+      <div id="lobbyRoom" class="lobby-col" hidden>
+        <p id="lobbyResult" class="result"></p>
+        <p>Room code</p>
+        <div id="roomCode"></div>
+        <div class="btn-sub" id="btnCopy">COPY INVITE LINK</div>
+        <div id="roster"></div>
+        <div class="btn-sub" id="btnMode">MODE: VERSUS</div>
+        <div class="btn-main" id="btnLobbyStart">START MATCH</div>
+        <p id="lobbyStatus" class="status"></p>
+        <div class="btn-sub" id="btnLeave">LEAVE</div>
+      </div>
+    </div>
+
+    <div id="rotate">Rotate your phone to landscape</div>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "player": {
+    "url": "assets/mixamo/player.fbx",
+    "height": 1.75,
+    "facing": "+z",
+    "tintMaterial": "Top",
+    "clips": {
+      "idle": "assets/mixamo/idle.fbx",
+      "walk": "assets/mixamo/walk.fbx",
+      "jog": "assets/mixamo/jog.fbx",
+      "run": "assets/mixamo/sprint.fbx",
+      "dribble": "assets/mixamo/dribble.fbx",
+      "pass": "assets/mixamo/pass.fbx",
+      "shoot": "assets/mixamo/shoot.fbx",
+      "kick": "assets/mixamo/kick.fbx",
+      "tackle": "assets/mixamo/tackle.fbx",
+      "hit": "assets/mixamo/hit.fbx",
+      "celebrate": "assets/mixamo/celebrate.fbx",
+      "gk_idle": "assets/mixamo/gk_idle.fbx",
+      "gk_dive_l": "assets/mixamo/gk_dive_l.fbx",
+      "gk_dive_r": "assets/mixamo/gk_dive_r.fbx",
+      "gk_catch": "assets/mixamo/gk_catch.fbx",
+      "gk_hold": "assets/mixamo/gk_hold.fbx",
+      "gk_throw": "assets/mixamo/gk_throw.fbx"
+    }
+  },
+  "keeper": null,
+  "ball": null,
+  "arena": null
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Cage Kings",
+  "short_name": "Cage Kings",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0b1226",
+  "theme_color": "#0b1226"
+}
