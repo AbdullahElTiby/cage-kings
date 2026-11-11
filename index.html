@@ -11,8 +11,8 @@
     <meta name="theme-color" content="#0b1226" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <title>Cage Kings</title>
-    <script type="module" crossorigin src="./assets/index-BtBcGfEh.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CCuNpLEz.css">
+    <script type="module" crossorigin src="./assets/index-CkPcC2kQ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-QaIzCd1V.css">
   </head>
   <body>
     <canvas id="c"></canvas>
@@ -49,7 +49,7 @@
       <p id="menuSub">3v3 arena football. No fouls. No out of bounds.</p>
       <div class="btn-main" id="btnStart">PLAY</div>
       <div class="btn-sub" id="btnOnline">PLAY WITH FRIENDS</div>
-      <div class="btn-sub" id="btnArena">ARENA</div>
+      <div class="btn-sub" id="btnSettings">SETTINGS</div>
       <p class="hint touch-only">
         Left thumb: move &nbsp;·&nbsp; Drag right side: look &amp; aim &nbsp;·&nbsp; SHOOT: hold to charge, ball flies to the reticle<br />
         PASS / CALL &nbsp;·&nbsp; TACKLE without the ball
@@ -62,6 +62,30 @@
         <span><kbd>Shift</kbd> Sprint</span>
         <span><kbd>Esc</kbd> Free mouse</span>
       </div>
+    </div>
+
+    <div id="settings" class="overlay hidden">
+      <h2>SETTINGS</h2>
+      <div class="set-col">
+        <div class="set-row">
+          <span class="set-label">DIFFICULTY</span>
+          <div class="seg" id="diffSeg">
+            <div class="seg-btn" data-diff="easy">EASY</div>
+            <div class="seg-btn" data-diff="normal">NORMAL</div>
+            <div class="seg-btn" data-diff="hard">HARD</div>
+          </div>
+          <p class="set-note" id="diffNote"></p>
+        </div>
+        <div class="set-row">
+          <span class="set-label">ARENA</span>
+          <div class="btn-sub" id="btnArena">ARENA</div>
+        </div>
+        <div class="set-row">
+          <span class="set-label">GRAPHICS</span>
+          <div class="btn-sub" id="btnGfx">GRAPHICS: AUTO</div>
+        </div>
+      </div>
+      <div class="btn-main" id="btnSettingsBack">DONE</div>
     </div>
 
     <div id="lobby" class="overlay hidden">
