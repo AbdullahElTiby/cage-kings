@@ -147,6 +147,12 @@
       "url": "assets/mixamo/player7.fbx",
       "tintMaterial": "Ch38_body",
       "tintMesh": "Ch37_Shirt"
+    },
+    {
+      "id": "player1",
+      "name": "Player 1",
+      "url": "assets/characters/player1.glb",
+      "tintMaterial": "outfit_top"
     }
   ],
   "keeper": null,
