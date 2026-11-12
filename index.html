@@ -11,8 +11,8 @@
     <meta name="theme-color" content="#0b1226" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <title>Cage Kings</title>
-    <script type="module" crossorigin src="./assets/index-KwcvSmcZ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CnInHxSl.css">
+    <script type="module" crossorigin src="./assets/index-CY8RgX6O.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-qOErlKUX.css">
   </head>
   <body>
     <canvas id="c"></canvas>
@@ -22,8 +22,10 @@
       <div id="scorebar">
         <span id="clock">3:00</span>
         <span class="team t0">YOU</span>
+        <span class="wildcard-label" id="card0"></span>
         <span class="score" id="s0">0</span>
         <span class="score" id="s1">0</span>
+        <span class="wildcard-label" id="card1"></span>
         <span class="team t1">CPU</span>
       </div>
       <canvas id="minimap"></canvas>
@@ -33,7 +35,7 @@
       <div id="replay"><b>REPLAY</b><span>CLICK TO SKIP</span></div>
       <div id="lockHint" class="pc-only">CLICK TO PLAY · MOUSE TO AIM</div>
       <div id="stamina"><i></i></div>
-      <div id="guideHint" class="pc-only"><kbd>F1</kbd> Controls</div>
+      <div id="guideHint" class="pc-only"><kbd>F1</kbd> Controls · <kbd>F2</kbd> Facing</div>
       <div id="guide" class="pc-only">
         <h3>CONTROLS <span><kbd>F1</kbd> to close</span></h3>
         <div class="guide-grid">
@@ -45,8 +47,11 @@
           <span><kbd>Q</kbd></span><span>Lob pass</span>
           <span><kbd>R</kbd> <kbd>MMB</kbd></span><span>Through ball</span>
           <span><kbd>F</kbd></span><span>Cross</span>
-          <span><kbd>Space</kbd></span><span>Tackle (keeper: dive)</span>
+          <span><kbd>Space</kbd></span><span>Tackle; keeper: direction = dive, no stick = stand-up block</span>
           <span><kbd>C</kbd></span><span>Jump: head it or block it</span>
+          <span><kbd>X</kbd></span><span>Scissor kick a nearby high ball; landing leaves you grounded</span>
+          <span><kbd>Z</kbd></span><span>Hold to trap / cushion an incoming mid-height ball</span>
+          <span><kbd>G</kbd></span><span>Trick with the ball: press / hold to cycle; keeper: place ball</span>
           <span><kbd>Esc</kbd></span><span>Free the mouse</span>
         </div>
       </div>
@@ -59,11 +64,20 @@
       <div id="lookZone"></div>
       <div class="btn" id="btnSprint">SPRINT</div>
       <div class="btn" id="btnJump">JUMP</div>
+      <div class="btn" id="btnSkill" role="button" aria-label="Contextual football skill">TRICK</div>
       <div class="btn" id="btnPass">PASS</div>
       <div class="btn pass-alt" id="btnLob">LOB</div>
       <div class="btn pass-alt" id="btnThrough">THRU</div>
       <div class="btn pass-alt" id="btnCross">CROSS</div>
       <div class="btn" id="btnAction">SHOOT</div>
+    </div>
+
+    <div id="draft" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="draftTitle">
+      <h2 id="draftTitle">PICK A WILDCARD</h2>
+      <p>One team card until the next goal</p>
+      <div id="draftCards"></div>
+      <p id="draftStatus" aria-live="polite"></p>
+      <p class="hint">Press 1 / 2 / 3 or tap a card</p>
     </div>
 
     <div id="menu" class="overlay">
@@ -75,15 +89,18 @@
       <div class="btn-sub" id="btnSettings">SETTINGS</div>
       <p class="hint touch-only">
         Left thumb: move &nbsp;·&nbsp; Drag right side: look &amp; aim &nbsp;·&nbsp; SHOOT: hold to charge, ball flies to the reticle<br />
-        PASS / CALL &nbsp;·&nbsp; LOB, THRU (through ball), CROSS with the ball &nbsp;·&nbsp; TACKLE without the ball (DIVE as keeper)
+        PASS / CALL &nbsp;·&nbsp; LOB, THRU (through ball), CROSS with the ball &nbsp;·&nbsp; TACKLE without the ball (keeper: stick = DIVE, idle = BLOCK)<br />
+        SKILL: SCISSOR near a high ball / hold TRAP for an incoming ball / TRICK with possession / PLACE as keeper
       </p>
       <div class="keys pc-only">
         <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</span>
         <span><kbd>Mouse</kbd> Look &amp; aim</span>
-        <span><kbd>LMB</kbd> Hold to shoot · <kbd>Space</kbd> Tackle (keeper: dive)</span>
+        <span><kbd>LMB</kbd> Hold to shoot · <kbd>Space</kbd> Tackle (keeper: stick = dive, idle = block)</span>
         <span><kbd>RMB</kbd>/<kbd>E</kbd> Pass · Call</span>
         <span><kbd>Q</kbd> Lob · <kbd>R</kbd>/<kbd>MMB</kbd> Through ball · <kbd>F</kbd> Cross</span>
         <span><kbd>Shift</kbd> Sprint · <kbd>C</kbd> Jump (head it / block it)</span>
+        <span><kbd>X</kbd> Scissor kick · <kbd>Z</kbd> Hold to trap / cushion</span>
+        <span><kbd>G</kbd> Trick: press / hold to cycle · Keeper: place ball</span>
         <span><kbd>Esc</kbd> Free mouse</span>
       </div>
     </div>
@@ -107,6 +124,15 @@
             <div class="seg-btn" data-pos="keeper">KEEPER</div>
           </div>
           <p class="set-note" id="posNote"></p>
+        </div>
+        <div class="set-row">
+          <span class="set-label">FACING</span>
+          <div class="seg" id="faceSeg">
+            <div class="seg-btn" data-face="A">RUN</div>
+            <div class="seg-btn" data-face="B">CAMERA</div>
+            <div class="seg-btn" data-face="C">MIXED</div>
+          </div>
+          <p class="set-note" id="faceNote"></p>
         </div>
         <div class="set-row">
           <span class="set-label">ARENA</span>

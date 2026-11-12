@@ -5,23 +5,106 @@
     "facing": "+z",
     "tintMaterial": "Top",
     "clips": {
-      "idle": "assets/mixamo/idle.fbx",
+      "idle": [
+        "assets/mixamo/idle.fbx",
+        "assets/mixamo/pack/offensive_idle.fbx"
+      ],
       "walk": "assets/mixamo/walk.fbx",
-      "jog": "assets/mixamo/jog.fbx",
+      "jog": [
+        "assets/mixamo/jog.fbx",
+        "assets/mixamo/pack/jog_forward.fbx"
+      ],
       "run": "assets/mixamo/sprint.fbx",
       "dribble": "assets/mixamo/dribble.fbx",
-      "pass": "assets/mixamo/pass.fbx",
+      "pass": [
+        "assets/mixamo/pass.fbx",
+        "assets/mixamo/pack/kick_soccerball.fbx",
+        "assets/mixamo/pack/kick_soccerball_2.fbx"
+      ],
       "shoot": "assets/mixamo/shoot.fbx",
+      "shoot_jog": "assets/mixamo/pack/strike_foward_jog.fbx",
+      "shoot_penalty": "assets/mixamo/pack/soccer_penalty_kick.fbx",
+      "volley": "assets/mixamo/volley.fbx",
+      "bicycle": "assets/mixamo/pack/scissor_kick.fbx",
+      "chest_knee": [
+        "assets/mixamo/pack/kneeing_soccerball.fbx",
+        "assets/mixamo/pack/kneeing_soccerball_2.fbx"
+      ],
+      "juggle": [
+        "assets/mixamo/pack/kick_up_soccerball.fbx",
+        "assets/mixamo/pack/stall_soccerball.fbx",
+        "assets/mixamo/pack/stall_soccerball_2.fbx",
+        "assets/mixamo/pack/stall_soccerball_3.fbx",
+        "assets/mixamo/pack/stall_soccerball_4.fbx"
+      ],
       "kick": "assets/mixamo/kick.fbx",
-      "tackle": "assets/mixamo/tackle.fbx",
+      "tackle": [
+        "assets/mixamo/tackle.fbx",
+        "assets/mixamo/pack/soccer_tackle.fbx",
+        "assets/mixamo/pack/soccer_tackle_2.fbx",
+        "assets/mixamo/pack/soccer_tackle_3.fbx"
+      ],
       "hit": "assets/mixamo/hit.fbx",
       "celebrate": "assets/mixamo/celebrate.fbx",
-      "gk_idle": "assets/mixamo/gk_idle.fbx",
-      "gk_dive_l": "assets/mixamo/gk_dive_l.fbx",
-      "gk_dive_r": "assets/mixamo/gk_dive_r.fbx",
-      "gk_catch": "assets/mixamo/gk_catch.fbx",
+      "gk_idle": [
+        "assets/mixamo/gk_idle.fbx",
+        "assets/mixamo/pack/goalkeeper_idle.fbx",
+        "assets/mixamo/pack/goalkeeper_idle_2.fbx"
+      ],
+      "gk_dive_l": [
+        "assets/mixamo/gk_dive_l.fbx",
+        "assets/mixamo/pack/goalkeeper_diving_save.fbx"
+      ],
+      "gk_dive_r": [
+        "assets/mixamo/gk_dive_r.fbx",
+        "assets/mixamo/pack/goalkeeper_diving_save_2.fbx"
+      ],
+      "gk_catch": [
+        "assets/mixamo/gk_catch.fbx",
+        "assets/mixamo/pack/goalkeeper_catch.fbx",
+        "assets/mixamo/pack/goalkeeper_catch_2.fbx",
+        "assets/mixamo/pack/goalkeeper_catch_3.fbx"
+      ],
       "gk_hold": "assets/mixamo/gk_hold.fbx",
-      "gk_throw": "assets/mixamo/gk_throw.fbx"
+      "gk_throw": [
+        "assets/mixamo/gk_throw.fbx",
+        "assets/mixamo/pack/goalkeeper_overhand_throw.fbx"
+      ],
+      "gk_directing": [
+        "assets/mixamo/pack/goalkeeper_directing.fbx",
+        "assets/mixamo/pack/goalkeeper_directing_2.fbx"
+      ],
+      "gk_pass": "assets/mixamo/pack/goalkeeper_pass.fbx",
+      "gk_place": [
+        "assets/mixamo/pack/goalkeeper_placing_ball.fbx",
+        "assets/mixamo/pack/goalkeeper_placing_ball_2.fbx"
+      ],
+      "header": [
+        "assets/mixamo/pack/header_soccerball.fbx",
+        "assets/mixamo/pack/header_soccerball_2.fbx"
+      ],
+      "receive": "assets/mixamo/pack/receive_soccerball.fbx",
+      "trip": "assets/mixamo/pack/soccer_trip.fbx",
+      "fallen": "assets/mixamo/pack/fallen_idle.fbx",
+      "get_up": "assets/mixamo/pack/standing_up.fbx",
+      "jog_back": "assets/mixamo/pack/jog_backward.fbx",
+      "jog_diag_fl": "assets/mixamo/pack/jog_forward_diagonal_2.fbx",
+      "jog_diag_fr": "assets/mixamo/pack/jog_forward_diagonal.fbx",
+      "jog_diag_bl": "assets/mixamo/pack/jog_backward_diagonal_2.fbx",
+      "jog_diag_br": "assets/mixamo/pack/jog_backward_diagonal.fbx",
+      "strafe_l": "assets/mixamo/pack/jog_strafe_left.fbx",
+      "strafe_r": "assets/mixamo/pack/jog_strafe_right.fbx",
+      "gk_sidestep_l": "assets/mixamo/pack/goalkeeper_sidestep.fbx",
+      "gk_sidestep_r": "assets/mixamo/pack/goalkeeper_sidestep_2.fbx",
+      "gk_scoop": "assets/mixamo/pack/goalkeeper_scoop.fbx",
+      "gk_block": [
+        "assets/mixamo/pack/goalkeeper_body_block.fbx",
+        "assets/mixamo/pack/goalkeeper_body_block_2.fbx",
+        "assets/mixamo/pack/goalkeeper_body_block_3.fbx"
+      ],
+      "gk_miss": "assets/mixamo/pack/goalkeeper_miss.fbx",
+      "gk_drop_kick": "assets/mixamo/pack/goalkeeper_drop_kick.fbx",
+      "throw_in": "assets/mixamo/pack/throw_in.fbx"
     }
   },
   "characters": [
@@ -33,7 +116,37 @@
     {
       "id": "playmaker",
       "name": "Playmaker",
-      "url": "assets/mixamo/player2.fbx"
+      "url": "assets/mixamo/player2.fbx",
+      "tintMaterial": "Ch01_body",
+      "tintMesh": "Ch01_Shirt"
+    },
+    {
+      "id": "captain",
+      "name": "Captain",
+      "url": "assets/mixamo/player4.fbx",
+      "tintMaterial": "Ch21_body",
+      "tintMesh": "Ch21_Shirt"
+    },
+    {
+      "id": "defender",
+      "name": "Defender",
+      "url": "assets/mixamo/player5.fbx",
+      "tintMaterial": "Ch23_body",
+      "tintMesh": "Ch23_Shirt"
+    },
+    {
+      "id": "runner",
+      "name": "Runner",
+      "url": "assets/mixamo/player6.fbx",
+      "tintMaterial": "Ch38_body",
+      "tintMesh": "Ch38_Shirt"
+    },
+    {
+      "id": "sweeper",
+      "name": "Sweeper",
+      "url": "assets/mixamo/player7.fbx",
+      "tintMaterial": "Ch38_body",
+      "tintMesh": "Ch37_Shirt"
     }
   ],
   "keeper": null,
@@ -44,6 +157,9 @@
     "url": "assets/goal/scene.gltf",
     "facing": "+z",
     "frame": "Rectangle001|Shape001|NGon002"
+  },
+  "referee": {
+    "url": "assets/referee/drone.glb"
   },
   "arena": null
 }
