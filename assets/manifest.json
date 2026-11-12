@@ -150,8 +150,8 @@
     },
     {
       "id": "player1",
-      "name": "Player 1",
-      "url": "assets/characters/player1.glb",
+      "name": "Player 03",
+      "url": "assets/characters/player03.glb",
       "tintMaterial": "outfit_top"
     }
   ],
