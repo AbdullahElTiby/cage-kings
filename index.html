@@ -11,8 +11,8 @@
     <meta name="theme-color" content="#0b1226" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <title>Cage Kings</title>
-    <script type="module" crossorigin src="./assets/index-CY8RgX6O.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-qOErlKUX.css">
+    <script type="module" crossorigin src="./assets/index-DVYpmpBK.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BjeYdp96.css">
   </head>
   <body>
     <canvas id="c"></canvas>
@@ -52,7 +52,7 @@
           <span><kbd>X</kbd></span><span>Scissor kick a nearby high ball; landing leaves you grounded</span>
           <span><kbd>Z</kbd></span><span>Hold to trap / cushion an incoming mid-height ball</span>
           <span><kbd>G</kbd></span><span>Trick with the ball: press / hold to cycle; keeper: place ball</span>
-          <span><kbd>Esc</kbd></span><span>Free the mouse</span>
+          <span><kbd>Esc</kbd> <kbd>P</kbd></span><span>Pause a solo match</span>
         </div>
       </div>
     </div>
@@ -80,6 +80,12 @@
       <p class="hint">Press 1 / 2 / 3 or tap a card</p>
     </div>
 
+    <button id="btnPause" class="btn-sub" type="button" hidden>PAUSE</button>
+    <dialog id="pause" aria-labelledby="pauseTitle">
+      <h2 id="pauseTitle">PAUSED</h2>
+      <button id="btnResume" class="btn-main" type="button" autofocus>RESUME</button>
+    </dialog>
+
     <div id="menu" class="overlay">
       <h1>CAGE KINGS</h1>
       <p id="menuSub">3v3 arena football. No fouls. No out of bounds.</p>
@@ -101,7 +107,7 @@
         <span><kbd>Shift</kbd> Sprint · <kbd>C</kbd> Jump (head it / block it)</span>
         <span><kbd>X</kbd> Scissor kick · <kbd>Z</kbd> Hold to trap / cushion</span>
         <span><kbd>G</kbd> Trick: press / hold to cycle · Keeper: place ball</span>
-        <span><kbd>Esc</kbd> Free mouse</span>
+        <span><kbd>Esc</kbd> / <kbd>P</kbd> Pause solo</span>
       </div>
     </div>
 
