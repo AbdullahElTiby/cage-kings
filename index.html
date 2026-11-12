@@ -11,8 +11,8 @@
     <meta name="theme-color" content="#0b1226" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <title>Cage Kings</title>
-    <script type="module" crossorigin src="./assets/index-CkPcC2kQ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-QaIzCd1V.css">
+    <script type="module" crossorigin src="./assets/index-_gSHB9p5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BQWcL7ys.css">
   </head>
   <body>
     <canvas id="c"></canvas>
@@ -32,6 +32,23 @@
       <div id="banner"></div>
       <div id="lockHint" class="pc-only">CLICK TO PLAY · MOUSE TO AIM</div>
       <div id="stamina"><i></i></div>
+      <div id="guideHint" class="pc-only"><kbd>F1</kbd> Controls</div>
+      <div id="guide" class="pc-only">
+        <h3>CONTROLS <span><kbd>F1</kbd> to close</span></h3>
+        <div class="guide-grid">
+          <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>Move</span>
+          <span><kbd>Mouse</kbd></span><span>Look &amp; aim</span>
+          <span><kbd>Shift</kbd></span><span>Sprint</span>
+          <span><kbd>LMB</kbd></span><span>Hold to charge, release to shoot at the reticle</span>
+          <span><kbd>RMB</kbd> <kbd>E</kbd></span><span>Pass (without the ball: call for it)</span>
+          <span><kbd>Q</kbd></span><span>Lob pass</span>
+          <span><kbd>R</kbd> <kbd>MMB</kbd></span><span>Through ball</span>
+          <span><kbd>F</kbd></span><span>Cross</span>
+          <span><kbd>Space</kbd></span><span>Tackle (keeper: dive)</span>
+          <span><kbd>C</kbd></span><span>Jump: head it or block it</span>
+          <span><kbd>Esc</kbd></span><span>Free the mouse</span>
+        </div>
+      </div>
     </div>
 
     <div id="controls">
@@ -40,7 +57,11 @@
       </div>
       <div id="lookZone"></div>
       <div class="btn" id="btnSprint">SPRINT</div>
+      <div class="btn" id="btnJump">JUMP</div>
       <div class="btn" id="btnPass">PASS</div>
+      <div class="btn pass-alt" id="btnLob">LOB</div>
+      <div class="btn pass-alt" id="btnThrough">THRU</div>
+      <div class="btn pass-alt" id="btnCross">CROSS</div>
       <div class="btn" id="btnAction">SHOOT</div>
     </div>
 
@@ -49,17 +70,19 @@
       <p id="menuSub">3v3 arena football. No fouls. No out of bounds.</p>
       <div class="btn-main" id="btnStart">PLAY</div>
       <div class="btn-sub" id="btnOnline">PLAY WITH FRIENDS</div>
+      <div class="btn-sub" id="btnCharacter">CHARACTER</div>
       <div class="btn-sub" id="btnSettings">SETTINGS</div>
       <p class="hint touch-only">
         Left thumb: move &nbsp;·&nbsp; Drag right side: look &amp; aim &nbsp;·&nbsp; SHOOT: hold to charge, ball flies to the reticle<br />
-        PASS / CALL &nbsp;·&nbsp; TACKLE without the ball
+        PASS / CALL &nbsp;·&nbsp; LOB, THRU (through ball), CROSS with the ball &nbsp;·&nbsp; TACKLE without the ball (DIVE as keeper)
       </p>
       <div class="keys pc-only">
         <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</span>
         <span><kbd>Mouse</kbd> Look &amp; aim</span>
-        <span><kbd>LMB</kbd>/<kbd>Space</kbd> Hold to shoot · Tackle</span>
+        <span><kbd>LMB</kbd> Hold to shoot · <kbd>Space</kbd> Tackle (keeper: dive)</span>
         <span><kbd>RMB</kbd>/<kbd>E</kbd> Pass · Call</span>
-        <span><kbd>Shift</kbd> Sprint</span>
+        <span><kbd>Q</kbd> Lob · <kbd>R</kbd>/<kbd>MMB</kbd> Through ball · <kbd>F</kbd> Cross</span>
+        <span><kbd>Shift</kbd> Sprint · <kbd>C</kbd> Jump (head it / block it)</span>
         <span><kbd>Esc</kbd> Free mouse</span>
       </div>
     </div>
@@ -77,6 +100,14 @@
           <p class="set-note" id="diffNote"></p>
         </div>
         <div class="set-row">
+          <span class="set-label">POSITION</span>
+          <div class="seg" id="posSeg">
+            <div class="seg-btn" data-pos="field">FIELD</div>
+            <div class="seg-btn" data-pos="keeper">KEEPER</div>
+          </div>
+          <p class="set-note" id="posNote"></p>
+        </div>
+        <div class="set-row">
           <span class="set-label">ARENA</span>
           <div class="btn-sub" id="btnArena">ARENA</div>
         </div>
@@ -86,6 +117,39 @@
         </div>
       </div>
       <div class="btn-main" id="btnSettingsBack">DONE</div>
+    </div>
+
+    <div id="custom" class="hidden">
+      <div id="customDrag" title="Drag to turn"></div>
+      <div class="cust-panel">
+        <h2>CHARACTER</h2>
+        <div class="cust-chars" id="charList"></div>
+        <p class="set-note" id="charNote"></p>
+        <div class="cust-row">
+          <label class="cust-field"><span class="set-label">NAME</span>
+            <input id="lookName" maxlength="12" placeholder="Your name" autocomplete="off" />
+          </label>
+          <label class="cust-field num"><span class="set-label">NUMBER</span>
+            <input id="lookNumber" type="number" min="1" max="99" inputmode="numeric" />
+          </label>
+        </div>
+        <div class="cust-part"><span class="set-label">SKIN</span><div class="swatches" data-part="skin"></div></div>
+        <div class="cust-part"><span class="set-label">HAIR</span><div class="swatches" data-part="hair"></div></div>
+        <div class="cust-part"><span class="set-label">SHORTS</span><div class="swatches" data-part="shorts"></div></div>
+        <div class="cust-part"><span class="set-label">BOOTS</span><div class="swatches" data-part="boots"></div></div>
+        <label class="cust-part"><span class="set-label">HEIGHT <b id="lookHeightOut"></b></span>
+          <input id="lookHeight" type="range" step="0.01" />
+        </label>
+        <label class="cust-part"><span class="set-label">BUILD <b id="lookBuildOut"></b></span>
+          <input id="lookBuild" type="range" step="0.01" />
+        </label>
+        <p class="set-note">Shirt colour follows your team. Drag the player to turn them.</p>
+        <div class="cust-actions">
+          <div class="btn-sub" id="btnLookRandom">RANDOM</div>
+          <div class="btn-sub" id="btnLookReset">RESET</div>
+          <div class="btn-main" id="btnLookDone">DONE</div>
+        </div>
+      </div>
     </div>
 
     <div id="lobby" class="overlay hidden">
@@ -107,6 +171,8 @@
         <div id="roomCode"></div>
         <div class="btn-sub" id="btnCopy">COPY INVITE LINK</div>
         <div id="roster"></div>
+        <div class="btn-sub" id="btnPos">POSITION: FIELD</div>
+        <div class="btn-sub" id="btnLobbyChar">CHARACTER</div>
         <div class="btn-sub" id="btnMode">MODE: VERSUS</div>
         <div class="btn-main" id="btnLobbyStart">START MATCH</div>
         <p id="lobbyStatus" class="status"></p>

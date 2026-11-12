@@ -24,7 +24,26 @@
       "gk_throw": "assets/mixamo/gk_throw.fbx"
     }
   },
+  "characters": [
+    {
+      "id": "striker",
+      "name": "Striker",
+      "url": "assets/mixamo/player.fbx"
+    },
+    {
+      "id": "playmaker",
+      "name": "Playmaker",
+      "url": "assets/mixamo/player2.fbx"
+    }
+  ],
   "keeper": null,
-  "ball": null,
+  "ball": {
+    "url": "assets/ball.glb"
+  },
+  "goal": {
+    "url": "assets/goal/scene.gltf",
+    "facing": "+z",
+    "frame": "Rectangle001|Shape001|NGon002"
+  },
   "arena": null
 }
